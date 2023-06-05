@@ -22,5 +22,13 @@ namespace SuperShop.Web.Data.Entities
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
         public double Stock { get; set; }
         public User User { get; set; }
+        public string ImageFullPath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(ImageURL)) { return null; }
+                return $"https://localhost:44301{ImageURL.Substring(1)}";
+            }
+        }
     }
 }
